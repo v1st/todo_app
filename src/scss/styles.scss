@@ -1,0 +1,66 @@
+@import 'colors';
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: $bg;
+}
+
+.navbar {
+    background: $light;
+    border-bottom: 2px solid $shadow;
+}
+
+.main {
+    padding-top: 56px;
+    padding-bottom: 50px;
+}
+
+.card {
+    height: 80px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    margin: 10px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.card-title {
+    margin: auto 0;
+}
+
+.unchecked,
+.checked {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: auto 0 auto auto;
+}
+.unchecked {
+    background-color: $light;
+    border: 2px solid $baby-blue;
+}
+.checked {
+    background-color: $baby-blue;
+    background-image: url(/src/image/check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.footer {
+    border-top: 2px solid $shadow;
+}
+.form-control {
+    border-radius: 0;
+    border: none;
+}
