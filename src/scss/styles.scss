@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'mixins';
 * {
     box-sizing: border-box;
     padding: 0;
@@ -15,18 +16,25 @@ body {
 }
 
 .main {
-    padding-top: 56px;
+    padding-top: 62px;
     padding-bottom: 50px;
+    overflow: hidden;
 }
-
 .card {
+    max-width: 95%;
     height: 80px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid;
+    border-left: 10px solid;
     border-right: none;
     border-top: none;
     border-bottom: none;
     margin: 10px;
+    left: 0px;
+    margin: 5px 0;
+    transition: all 0.25s;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .card-body {
@@ -38,6 +46,7 @@ body {
 
 .card-title {
     margin: auto 0;
+    @include user-select(none);
 }
 
 .unchecked,
@@ -45,7 +54,8 @@ body {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    margin: auto 0 auto auto;
+    margin: auto 15px auto 0;
+    transition: ease-in-out 0.15s;
 }
 .unchecked {
     background-color: $light;
@@ -56,6 +66,18 @@ body {
     background-image: url(/src/image/check.svg);
     background-repeat: no-repeat;
     background-position: center;
+}
+.delete-img {
+    display: flex;
+    background-image: url(/src//image/red_trash.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 0px;
+    height: 50px;
+    margin: auto 0px auto 0px;
+    padding: 0;
+    transition: all 0.25s;
+    cursor: pointer;
 }
 .footer {
     border-top: 2px solid $shadow;
