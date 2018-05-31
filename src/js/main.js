@@ -1,22 +1,22 @@
 const Tasks = (function () {
     /* Variables */
-    
+
     let node;
     const checkboxes = document.querySelectorAll('.unchecked');
     const mainBody = document.getElementById('task-container');
     const textBox = document.getElementById('task-input');
-    const deleteIcons = document.getElementsByClassName('delete-img');
 
     /* Functions */
 
     function createTask(e) {
         const empty = /^\s+$/g;
+        const strip = /<[^>]*>/g;
         if (event.keyCode == 13) {
             if (this.value === "") {
                 return false;
             }
             if (!empty.test(this.value)) {
-                let task = this.value;
+                let task = this.value.replace(strip, '');
                 createDiv(capitalizeFirstLetter(task));
                 this.value = '';
             }
@@ -54,11 +54,11 @@ const Tasks = (function () {
 
 
     function clickToSlide(e) {
-        const del = e.target.parentNode.nextSibling.nextSibling; 
         if (e.target.classList.contains('delete-img')) {
             e.target.parentNode.parentNode.remove();
         }
         if (e.target.classList.contains('card-body')) {
+            const del = e.target.parentNode.nextSibling.nextSibling;
             node = e.target.parentNode;
             if (node.style.left === '' || node.style.left === '0px') {
                 node.style.left = `-50px`;
@@ -67,7 +67,7 @@ const Tasks = (function () {
             } else if (node.style.left === '-50px') {
                 node.style.left = `0px`;
                 del.style.maxWidth = '0px';
-                del.style.marginRight = '0px';                
+                del.style.marginRight = '0px';
             }
         }
     }
